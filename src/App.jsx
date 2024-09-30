@@ -1,5 +1,5 @@
 import React from 'react';
-//import Projects from './components/projects/Projects.jsx';
+//import Subjects from './components/Subjects.jsx';
 import Navbar from "./components/Navbar.jsx";
 import HomePage from "./components/HomePage.jsx";
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
@@ -15,7 +15,7 @@ function App() {
                 <Routes>
                     <Route path="/" element={<HomePage />} />
                     {/*<Route path="/about" element={<AboutTeam />} />*/}
-                    {/*<Route path="/projects" element={<Projects />} />*/}
+                    {/*<Route path="/subjects" element={<Subjects />} />*/}
                     {/* <Route path="/team" element={<HomePage/>} /> */}
                     {/*<Route path="/wiki" element={<HomePage/>} />*/}
                 </Routes>

@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
-import arcLogo from '../assets/arcicon.png';
-import hoverLogo from '../assets/hoverlogo.png'; // Import the new logo
+// import arcLogo from '../assets/arcicon.png';
+// import hoverLogo from '../assets/hoverlogo.png'; // Import the new logo
 
 const Navbar = () => {
     const [isScrolled, setIsScrolled] = useState(false);
@@ -35,17 +35,17 @@ const Navbar = () => {
                           className="logo flex items-center space-x-5"
                           onMouseEnter={() => setIsHovered(true)}
                           onMouseLeave={() => setIsHovered(false)}>
-                        <img src={isHovered ? hoverLogo : arcLogo} alt="Brand Logo" className={`my-4 transition-all duration-300 ease-in-out h-16 w-25`}/>
+                        {/* <img src={isHovered ? hoverLogo : arcLogo} alt="Brand Logo" className={`my-4 transition-all duration-300 ease-in-out h-16 w-25`}/> */}
 
                     </Link>
                     <div className="flex-grow"></div>
                     <div className="hidden sm:visible sm:flex items-center space-x-1">
                         <Link to="/" className="text-white hover:text-blue-600 transition duration-300 ease-in-out px-5 py-3 rounded border border-transparent hover:border-gray-300">Home</Link>
-                        <Link to="/about" className="text-white hover:text-blue-600 transition duration-300 ease-in-out px-5 py-3 rounded border border-transparent hover:border-gray-300 text-nowrap">The Team</Link>
-                        <Link to="/projects" className="text-white hover:text-blue-600 transition duration-300 ease-in-out px-5 py-3 rounded border border-transparent hover:border-gray-300">Projects</Link>
+                        <Link to="/about" className="text-white hover:text-blue-600 transition duration-300 ease-in-out px-5 py-3 rounded border border-transparent hover:border-gray-300 text-nowrap">About Us</Link>
+                        <Link to="/subjects" className="text-white hover:text-blue-600 transition duration-300 ease-in-out px-5 py-3 rounded border border-transparent hover:border-gray-300">Subjects</Link>
                         {/*  <Link to="/team" className="text-white hover:text-blue-600 transition duration-300 ease-in-out px-5 py-3 rounded border border-transparent hover:border-gray-300">Team</Link> */}
-                        <a href="https://wikipage.purduearc.com/" target="_blank" rel="noopener noreferrer" className="text-white hover:text-blue-600 transition duration-300 ease-in-out px-5 py-3 rounded border border-transparent hover:border-gray-300">Wiki</a>
-                        <a href="mailto:autonomy@purdue.edu" target="_blank" rel="noopener noreferrer" className="text-white hover:text-blue-600 transition duration-300 ease-in-out px-5 py-3 rounded border border-transparent hover:border-gray-300">Contact Us</a>
+                        {/* <a href="https://wikipage.purduearc.com/" target="_blank" rel="noopener noreferrer" className="text-white hover:text-blue-600 transition duration-300 ease-in-out px-5 py-3 rounded border border-transparent hover:border-gray-300">Wiki</a>
+                        <a href="mailto:prepolympiad@gmail.com" target="_blank" rel="noopener noreferrer" className="text-white hover:text-blue-600 transition duration-300 ease-in-out px-5 py-3 rounded border border-transparent hover:border-gray-300">Contact Us</a> */}
                     </div>
                     {isMobile && (
                         <button onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)} className="text-white hover:text-white focus:outline-none focus:text-white">
@@ -60,17 +60,17 @@ const Navbar = () => {
                         className={`sm:hidden bg-white shadow-lg absolute w-full ${isScrolled ? 'shadow-lg bg-opacity-90' : 'bg-opacity-100'}`}>
                         <Link to="/" className="block text-white hover:text-blue-600 px-6 py-3 rounded border border-transparent hover:border-gray-300">Home</Link>
                         <Link to="/about" className="block text-white hover:text-blue-600 px-6 py-3 rounded border border-transparent hover:border-gray-300">About Us</Link>
-                        <Link to="/projects" className="block text-white hover:text-blue-600 px-6 py-3 rounded border border-transparent hover:border-gray-300">Projects</Link>
-                        {/*  <Link to="/team" className="block text-white hover:text-blue-600 px-6 py-3 rounded border border-transparent hover:border-gray-300">Team</Link> */}
-                        <a href="https://wikipage.purduearc.com/" target="_blank" rel="noopener noreferrer" className="block text-white hover:text-blue-600 px-6 py-3 rounded border border-transparent hover:border-gray-300">Wiki</a>
+                        <Link to="/subjects" className="block text-white hover:text-blue-600 px-6 py-3 rounded border border-transparent hover:border-gray-300">Subjects</Link>
+                        {/*  <Link to="/team" className="block text-white hover:text-blue-600 px-6 py-3 rounded border border-transparent hover:border-gray-300">Team</Link> 
+                        <a href="https://wikipage.purduearc.com/" target="_blank" rel="noopener noreferrer" className="block text-white hover:text-blue-600 px-6 py-3 rounded border border-transparent hover:border-gray-300">Wiki</a> */}
                     </div>
                 )}
             </nav>
-            <div className="bg-white">
+            {/* <div className="bg-white">
                 <div className="mx-auto px-6 py-3 flex justify-between items-center">
                     <img src={arcLogo} alt="Brand Logo" className={`my-4 transition-all duration-300 ease-in-out ${isScrolled ? 'h-10 w-10' : 'h-16 w-16'} opacity-0`}/>
                 </div>
-            </div>
+                      </div> */}
         </>
     );
 };
