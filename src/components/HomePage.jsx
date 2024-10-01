@@ -32,7 +32,7 @@ const HomePage = () => {
             <div className="mx-auto px-4 py-2">
                 <div className="flex flex-col items-center justify-center">
                     <div className="text-center">
-                        <h1 className="text-5xl lg:text-6xl font-bold text-white">PrepOlmypiad</h1>
+                        <h1 className="text-5xl lg:text-6xl font-bold text-white">PrepOlympiad</h1>
                         <p className="mt-4 text-lg text-white mb-4">
                             Your center for preparing for any and all STEM Olympiads!
                         </p>
