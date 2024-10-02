@@ -29,7 +29,7 @@ const Navbar = () => {
 
     return (
         <>
-            <nav className={`bg-blue-800 fixed w-full h-16 transition-shadow duration-300 ease-in-out ${isScrolled ? `${isMobileMenuOpen ? '' : 'shadow-lg'} bg-opacity-90` : 'bg-opacity-100'} z-50`}>
+            <nav className={`bg-transparent backdrop-blur-lg fixed w-full h-16 transition-shadow duration-300 ease-in-out ${isScrolled ? `${isMobileMenuOpen ? '' : 'shadow-lg'} bg-opacity-90` : 'bg-opacity-100'} z-50`}>
                 <div className="px-6 py-3 flex items-center">
                     <Link to="/"
                           className="logo flex items-center space-x-5"
@@ -40,9 +40,9 @@ const Navbar = () => {
                     </Link>
                     <div className="flex-grow"></div>
                     <div className="hidden sm:visible sm:flex items-center space-x-1">
-                        <Link to="/" className="text-white hover:text-blue-600 transition duration-300 ease-in-out px-5 py-3 rounded border border-transparent hover:border-gray-300">Home</Link>
-                        <Link to="/about" className="text-white hover:text-blue-600 transition duration-300 ease-in-out px-5 py-3 rounded border border-transparent hover:border-gray-300 text-nowrap">About Us</Link>
-                        <Link to="/subjects" className="text-white hover:text-blue-600 transition duration-300 ease-in-out px-5 py-3 rounded border border-transparent hover:border-gray-300">Subjects</Link>
+                        <Link to="/" className="text-white font-bold hover:text-blue-600 transition duration-300 ease-in-out px-5 py-3 rounded border border-transparent hover:border-blue-300">Home</Link>
+                        <Link to="/about" className="text-white font-bold hover:text-blue-600 transition duration-300 ease-in-out px-5 py-3 rounded border border-transparent hover:border-blue-300 text-nowrap">About Us</Link>
+                        <Link to="/subjects" className="text-white font-bold hover:text-blue-600 transition duration-300 ease-in-out px-5 py-3 rounded border border-transparent hover:border-blue-300">Subjects</Link>
                         {/*  <Link to="/team" className="text-white hover:text-blue-600 transition duration-300 ease-in-out px-5 py-3 rounded border border-transparent hover:border-gray-300">Team</Link> */}
                         {/* <a href="https://wikipage.purduearc.com/" target="_blank" rel="noopener noreferrer" className="text-white hover:text-blue-600 transition duration-300 ease-in-out px-5 py-3 rounded border border-transparent hover:border-gray-300">Wiki</a>
                         <a href="mailto:prepolympiad@gmail.com" target="_blank" rel="noopener noreferrer" className="text-white hover:text-blue-600 transition duration-300 ease-in-out px-5 py-3 rounded border border-transparent hover:border-gray-300">Contact Us</a> */}
@@ -58,9 +58,9 @@ const Navbar = () => {
                 {isMobileMenuOpen && (
                     <div
                         className={`sm:hidden bg-white shadow-lg absolute w-full ${isScrolled ? 'shadow-lg bg-opacity-90' : 'bg-opacity-100'}`}>
-                        <Link to="/" className="block text-white hover:text-blue-600 px-6 py-3 rounded border border-transparent hover:border-gray-300">Home</Link>
-                        <Link to="/about" className="block text-white hover:text-blue-600 px-6 py-3 rounded border border-transparent hover:border-gray-300">About Us</Link>
-                        <Link to="/subjects" className="block text-white hover:text-blue-600 px-6 py-3 rounded border border-transparent hover:border-gray-300">Subjects</Link>
+                        <Link to="/" className="block text-white font-bold hover:text-blue-600 px-6 py-3 rounded border border-transparent hover:border-blue-300">Home</Link>
+                        <Link to="/about" className="block text-white font-bold hover:text-blue-600 px-6 py-3 rounded border border-transparent hover:border-blue-300">About Us</Link>
+                        <Link to="/subjects" className="block text-white font-bold hover:text-blue-600 px-6 py-3 rounded border border-transparent hover:border-blue-300">Subjects</Link>
                         {/*  <Link to="/team" className="block text-white hover:text-blue-600 px-6 py-3 rounded border border-transparent hover:border-gray-300">Team</Link> 
                         <a href="https://wikipage.purduearc.com/" target="_blank" rel="noopener noreferrer" className="block text-white hover:text-blue-600 px-6 py-3 rounded border border-transparent hover:border-gray-300">Wiki</a> */}
                     </div>

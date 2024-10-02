@@ -1,12 +1,10 @@
 import React, { useEffect } from 'react';
 import { Link } from 'react-router-dom';
-// import RecentNewsSection from "./RecentNewsSection.jsx";
 import gsap from 'gsap';
 import ScrollTrigger from 'gsap/ScrollTrigger';
-/* import videoSrc from '../assets/arcDemo.mp4';
-import Discord from "../assets/icons/icons8-discord-128.png"
-import Instagram from "../assets/icons/icons8-instagram-128.png"
-import Linkedin from "../assets/icons/icons8-linkedin-96.png" */
+
+import { FaSquareRootAlt, FaFlask, FaAtom, FaLeaf, FaGlobeAmericas } from 'react-icons/fa'; // Import icons for different subjects
+import './HomePage.css'; // Import custom CSS for animations
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -28,44 +26,32 @@ const HomePage = () => {
     }, []);
 
     return (
-        <div className="bg-blue-800 min-h-screen pt-32">
-            <div className="mx-auto px-4 py-2">
-                <div className="flex flex-col items-center justify-center">
-                    <div className="text-center">
-                        <h1 className="text-5xl lg:text-6xl font-bold text-white">PrepOlympiad</h1>
-                        <p className="mt-4 text-lg text-white mb-4">
+        <div className="min-h-screen pt-32">
+            <div className="container mx-auto px-4 py-8">
+                {/* Flexbox container for two-column layout */}
+                <div className="flex flex-col lg:flex-row items-center lg:items-start justify-between">
+                    
+                    {/* Left Side: Text Content */}
+                    <div className="lg:w-1/2 text-left">
+                        <h1 className="text-6xl lg:text-8xl font-bold text-white">PrepOlympiad</h1>
+                        <p className="mt-14 lg:text-5xl font-bold text-white mb-4">
                             Your center for preparing for any and all STEM Olympiads!
                         </p>
-      {/*
-                        <div className="flex justify-center space-x-4 mt-4">
-                            <a href="https://discord.com/invite/feyyGCA6QU" target="_blank" rel="noopener noreferrer" className="icon-container w-16 h-16 bg-white rounded-full flex items-center justify-center shadow-lg">
-                                <img src={Discord} alt="Icon 1" className="w-8 h-8"/>
-                            </a>
-                            <a href="https://www.instagram.com/purdue.arc/" target="_blank" rel="noopener noreferrer" className="icon-container w-16 h-16 bg-white rounded-full flex items-center justify-center shadow-lg">
-                                <img src={Instagram} alt="Icon 2" className="w-8 h-8"/>
-                            </a>
-                            <a href="https://www.linkedin.com/company/purdue-arc/mycompany/" target="_blank" rel="noopener noreferrer" className="icon-container w-16 h-16 bg-white rounded-full flex items-center justify-center shadow-lg">
-                                <img src={Linkedin} alt="Icon 3" className="w-8 h-8"/>
-                            </a>
+                    </div>
+
+                    {/* Right Side: GIF/Video */}
+                    <div className="lg:w-1/2 mt-10 lg:mt-0 flex justify-center">
+                        {/* Wrapper for animated subject icons */}
+                        <div className="icon-container">
+                            <FaSquareRootAlt className="icon math-icon" />
+                            <FaFlask className="icon chemistry-icon" />
+                            <FaAtom className="icon physics-icon" />
+                            <FaLeaf className="icon biology-icon" />
+                            <FaGlobeAmericas className="icon earth-science-icon" />
                         </div>
-    */}
-
-                        <br>
-                        </br>
-
-      {/*
-                        <div className="max-w-5xl lg:max-w-6xl mb-8">
-                            <video autoPlay loop muted className="w-full h-auto object-cover rounded-lg shadow-xl">
-                                <source src={videoSrc} type="video/mp4"/>
-                            </video>
-                        </div>
-  */}
-
                     </div>
                 </div>
             </div>
-            {/* <RecentNewsSection className=" mx-auto px-4 py-8"/> */}
-            {/* <EventsSection className="mx-auto px-4 py-8" events={events}/> */}
         </div>
     );
 };

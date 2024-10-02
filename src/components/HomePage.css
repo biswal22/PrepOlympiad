@@ -1,0 +1,55 @@
+
+.icon-container {
+  display: flex;
+  justify-content: space-around;
+  width: 100%;
+}
+
+.icon {
+  font-size: 100px;
+  margin: 0 20px;
+  opacity: 0;
+  animation-duration: 2s;
+  animation-fill-mode: forwards;
+  animation-iteration-count: infinite;
+}
+
+.math-icon {
+  animation-name: fadeInOut;
+  animation-delay: 0s;
+}
+
+.chemistry-icon {
+  animation-name: fadeInOut;
+  animation-delay: 1s;
+}
+
+.physics-icon {
+  animation-name: fadeInOut;
+  animation-delay: 2s;
+}
+
+.biology-icon {
+  animation-name: fadeInOut;
+  animation-delay: 3s;
+}
+
+.earth-science-icon {
+  animation-name: fadeInOut;
+  animation-delay: 4s;
+}
+
+@keyframes fadeInOut {
+  0% {
+      opacity: 0;
+      transform: scale(0.5);
+  }
+  50% {
+      opacity: 1;
+      transform: scale(1.2);
+  }
+  100% {
+      opacity: 0;
+      transform: scale(0.5);
+  }
+}

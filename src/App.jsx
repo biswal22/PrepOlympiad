@@ -4,21 +4,23 @@ import Navbar from "./components/Navbar.jsx";
 import HomePage from "./components/HomePage.jsx";
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import About from "./components/About.jsx";
+import Footer from "./components/Footer.jsx"
 
 function App() {
 
 
     return (
-        <div className='font-sans'>
+        <div className='font-sans custom-bg min-h-screen'>
             <BrowserRouter>
                 <Navbar/>
-                <Routes>
-                    <Route path="/" element={<HomePage />} />
-                    <Route path="/about" element={<About />} />
-                    <Route path="/subjects" element={<Subjects />} />
-                    {/* <Route path="/team" element={<HomePage/>} /> */}
-                    {/*<Route path="/wiki" element={<HomePage/>} />*/}
-                </Routes>
+                <div className='flex-grow'>
+                    <Routes>
+                        <Route path="/" element={<HomePage />} />
+                        <Route path="/about" element={<About />} />
+                        <Route path="/subjects" element={<Subjects />} />
+                    </Routes>
+                </div>
+                <Footer />
             </BrowserRouter>
         </div>
     );
