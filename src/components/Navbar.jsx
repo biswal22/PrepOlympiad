@@ -8,6 +8,7 @@ const Navbar = () => {
     const [isMobile, setIsMobile] = useState(window.innerWidth < 640);
     const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
     const [isHovered, setIsHovered] = useState(false);
+    const [isDropdownOpen, setIsDropdownOpen] = useState(false);
 
     useEffect(() => {
         const handleScroll = () => {
@@ -42,7 +43,36 @@ const Navbar = () => {
                     <div className="hidden sm:visible sm:flex items-center space-x-1">
                         <Link to="/" className="text-white font-bold hover:text-blue-600 transition duration-300 ease-in-out px-5 py-3 rounded border border-transparent hover:border-blue-300">Home</Link>
                         <Link to="/about" className="text-white font-bold hover:text-blue-600 transition duration-300 ease-in-out px-5 py-3 rounded border border-transparent hover:border-blue-300 text-nowrap">About Us</Link>
-                        <Link to="/subjects" className="text-white font-bold hover:text-blue-600 transition duration-300 ease-in-out px-5 py-3 rounded border border-transparent hover:border-blue-300">Subjects</Link>
+                        {/* <Link to="/subjects" className="text-white font-bold hover:text-blue-600 transition duration-300 ease-in-out px-5 py-3 rounded border border-transparent hover:border-blue-300">Subjects</Link> */}
+                        <div 
+                            className="relative text-white font-bold px-5 py-3 rounded cursor-pointer flex items-center space-x-2"
+                            onMouseEnter={() => setIsDropdownOpen(true)}
+                            onMouseLeave={() => setIsDropdownOpen(false)}
+                            onClick={() => setIsDropdownOpen(!isDropdownOpen)}
+                        >
+                            <span className="hover:text-blue-600 transition duration-300 ease-in-out ">
+                                Subjects
+                            </span>
+                            <svg
+                                className={`w-4 h-4 transform transition-transform duration-300 ${isDropdownOpen ? 'rotate-180' : ''}`}
+                                xmlns="http://www.w3.org/2000/svg"
+                                fill="none"
+                                viewBox="0 0 24 24"
+                                stroke="currentColor"
+                            >
+                                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M19 9l-7 7-7-7" />
+                            </svg>
+                            {isDropdownOpen && (
+                                <div className="absolute left-0 top-full mt-0 w-48 bg-transparent text-white rounded-lg shadow-lg z-10">
+                                    <Link to="/subjects" className="block px-4 py-2 text-white font-semibold hover:bg-purple-300">All</Link>
+                                    <Link to="/mathematics" className="block px-4 py-2 text-white font-semibold hover:bg-purple-300">Mathematics</Link>
+                                    <Link to="/chemistry" className="block px-4 py-2 text-white font-semibold hover:bg-purple-300">Chemistry</Link>
+                                    <Link to="/physics" className="block px-4 py-2 text-white font-semibold hover:bg-purple-300">Physics</Link>
+                                    <Link to="/biology" className="block px-4 py-2 text-white font-semibold hover:bg-purple-300">Biology</Link>
+                                    <Link to="/earthscience" className="block px-4 py-2 text-white font-semibold hover:bg-purple-300">Earth Science</Link>
+                                </div>
+                            )}
+                        </div>
                         {/*  <Link to="/team" className="text-white hover:text-blue-600 transition duration-300 ease-in-out px-5 py-3 rounded border border-transparent hover:border-gray-300">Team</Link> */}
                         {/* <a href="https://wikipage.purduearc.com/" target="_blank" rel="noopener noreferrer" className="text-white hover:text-blue-600 transition duration-300 ease-in-out px-5 py-3 rounded border border-transparent hover:border-gray-300">Wiki</a>
                         <a href="mailto:prepolympiad@gmail.com" target="_blank" rel="noopener noreferrer" className="text-white hover:text-blue-600 transition duration-300 ease-in-out px-5 py-3 rounded border border-transparent hover:border-gray-300">Contact Us</a> */}
