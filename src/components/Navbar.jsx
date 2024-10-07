@@ -30,7 +30,7 @@ const Navbar = () => {
 
     return (
         <>
-            <nav className={`bg-transparent backdrop-blur-lg fixed w-full h-16 transition-shadow duration-300 ease-in-out ${isScrolled ? `${isMobileMenuOpen ? '' : 'shadow-lg'} bg-opacity-90` : 'bg-opacity-100'} z-50`}>
+            <nav className={`bg-transparent backdrop-blur-sm fixed w-full h-16 transition-shadow duration-300 ease-in-out ${isScrolled ? `${isMobileMenuOpen ? '' : 'shadow-lg'} bg-opacity-90` : 'bg-opacity-100'} z-50`}>
                 <div className="px-6 py-3 flex items-center">
                     <Link to="/"
                           className="logo flex items-center space-x-5"
