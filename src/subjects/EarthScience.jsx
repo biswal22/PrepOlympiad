@@ -39,27 +39,51 @@ const EarthScience = () => {
 
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mt-16">
                     {/* Box 1: Take a Timed Exam */}
-                    <Link to="/chemistry/timed-exam" className="bg-blue-100 p-6 rounded-lg shadow-lg hover:bg-blue-200 transition">
+                    <Link
+                        to={{
+                            pathname: '/timed-exam',
+                        }}
+                        state={{ from: '/earthscience' }} // Passing the current page as state
+                        className="bg-blue-100 p-6 rounded-lg shadow-lg hover:bg-blue-200 transition"
+                    >
                         <h2 className="text-2xl font-bold mb-4">Take a Timed Exam</h2>
                         <p>Prepare for the real testing experience with a timed exam.</p>
                     </Link>
 
                     {/* Box 2: Practice Random Problems */}
-                    <Link to="/chemistry/practice-problems" className="bg-green-100 p-6 rounded-lg shadow-lg hover:bg-green-200 transition">
+                    <Link
+                        to={{
+                            pathname: '/random-problems',
+                        }}
+                        state={{ from: '/earthscience' }} // Passing the current page as state
+                        className="bg-green-100 p-6 rounded-lg shadow-lg hover:bg-green-200 transition"
+                    >
                         <h2 className="text-2xl font-bold mb-4">Practice Random Problems</h2>
                         <p>Sharpen your skills by solving random problems.</p>
                     </Link>
 
                     {/* Box 3: Download Exam */}
-                    <Link to="/chemistry/download-exam" className="bg-yellow-100 p-6 rounded-lg shadow-lg hover:bg-yellow-200 transition">
+                    <Link
+                        to={{
+                            pathname: '/downloads',
+                        }}
+                        state={{ from: '/earthscience' }} // Passing the current page as state
+                        className="bg-yellow-100 p-6 rounded-lg shadow-lg hover:bg-yellow-200 transition"
+                    >
                         <h2 className="text-2xl font-bold mb-4">Download Exam</h2>
-                        <p>Download previous chemistry exams for offline practice.</p>
+                        <p>Download previous earth science exams for offline practice.</p>
                     </Link>
 
                     {/* Box 4: Resources */}
-                    <Link to="/chemistry/resources" className="bg-red-100 p-6 rounded-lg shadow-lg hover:bg-red-200 transition">
+                    <Link
+                        to={{
+                            pathname: '/resources',
+                        }}
+                        state={{ from: '/earthscience' }} // Passing the current page as state
+                        className="bg-red-100 p-6 rounded-lg shadow-lg hover:bg-red-200 transition"
+                    >
                         <h2 className="text-2xl font-bold mb-4">Resources</h2>
-                        <p>Find additional materials to help you ace your chemistry exam.</p>
+                        <p>Find additional materials to help you ace your earth science exam.</p>
                     </Link>
                 </div>
             </div>
