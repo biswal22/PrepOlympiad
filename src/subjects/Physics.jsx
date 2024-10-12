@@ -1,16 +1,19 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
+import { useAuth0 } from '@auth0/auth0-react';
+
 
 const Physics = () => {
+    const { isAuthenticated, loginWithRedirect } = useAuth0();
     const [isLoggedIn, setIsLoggedIn] = useState(false); // Simulating login state
 
     return (
         <div className="min-h-screen flex">
             {/* Left column: User Stats or Login Prompt */}
             <div className="w-1/4 bg-transparent p-6 pt-16"> {/* Added pt-32 to push the left column below the navbar */}
-                {isLoggedIn ? (
+            {isAuthenticated ? (
                     <div>
-                        <h2 className="text-2xl font-bold mb-4">Your Physics Stats</h2>
+                        <h2 className="text-2xl font-bold mb-4">Your Chemistry Stats</h2>
                         <ul>
                             <li>Exams Taken: 5</li>
                             <li>Average Score: 85%</li>
@@ -24,7 +27,7 @@ const Physics = () => {
                             <p className="text-lg font-bold mb-4">Log in to view your statistics</p>
                             <button
                                 className="bg-blue-600 text-white py-2 px-4 rounded hover:bg-blue-700 transition"
-                                onClick={() => alert('Redirect to login page')}
+                                onClick={loginWithRedirect}
                             >
                                 Log In
                             </button>

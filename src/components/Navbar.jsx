@@ -1,5 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
+import { useAuth0 } from '@auth0/auth0-react';
+
 // import arcLogo from '../assets/arcicon.png';
 // import hoverLogo from '../assets/hoverlogo.png'; // Import the new logo
 
@@ -9,6 +11,7 @@ const Navbar = () => {
     const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
     const [isHovered, setIsHovered] = useState(false);
     const [isDropdownOpen, setIsDropdownOpen] = useState(false);
+    const { loginWithRedirect, logout, isAuthenticated } = useAuth0();
 
     useEffect(() => {
         const handleScroll = () => {
@@ -73,6 +76,21 @@ const Navbar = () => {
                                 </div>
                             )}
                         </div>
+                        {isAuthenticated ? (
+                            <button
+                                onClick={() => logout({ returnTo: window.location.origin })}
+                                className="text-white font-bold bg-red-600 px-4 py-2 rounded hover:bg-red-700 transition"
+                            >
+                                Sign Out
+                            </button>
+                        ) : (
+                            <button
+                                onClick={() => loginWithRedirect()}
+                                className="text-white font-bold bg-blue-600 px-4 py-2 rounded hover:bg-blue-700 transition"
+                            >
+                                Sign In
+                            </button>
+                        )}
                         {/*  <Link to="/team" className="text-white hover:text-blue-600 transition duration-300 ease-in-out px-5 py-3 rounded border border-transparent hover:border-gray-300">Team</Link> */}
                         {/* <a href="https://wikipage.purduearc.com/" target="_blank" rel="noopener noreferrer" className="text-white hover:text-blue-600 transition duration-300 ease-in-out px-5 py-3 rounded border border-transparent hover:border-gray-300">Wiki</a>
                         <a href="mailto:prepolympiad@gmail.com" target="_blank" rel="noopener noreferrer" className="text-white hover:text-blue-600 transition duration-300 ease-in-out px-5 py-3 rounded border border-transparent hover:border-gray-300">Contact Us</a> */}
