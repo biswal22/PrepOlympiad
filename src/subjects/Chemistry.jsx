@@ -63,16 +63,15 @@ const Chemistry = () => {
                     </Link>
 
                     {/* Box 3: Download Exam */}
-                    <Link
-                        to={{
-                            pathname: '/downloads',
-                        }}
-                        state={{ from: '/chemistry' }} // Passing the current page as state
+                    <a
+                        href="https://www.acs.org/education/olympiad/prepare-for-exams.html"
+                        target="_blank" // Opens the link in a new tab
+                        rel="noopener noreferrer" // Security measure for opening new tabs
                         className="bg-yellow-100 p-6 rounded-lg shadow-lg hover:bg-yellow-200 transition"
                     >
                         <h2 className="text-2xl font-bold mb-4">Download Exam</h2>
                         <p>Download previous chemistry exams for offline practice.</p>
-                    </Link>
+                    </a>
 
                     {/* Box 4: Resources */}
                     <Link

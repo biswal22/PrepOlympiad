@@ -63,16 +63,15 @@ const EarthScience = () => {
                     </Link>
 
                     {/* Box 3: Download Exam */}
-                    <Link
-                        to={{
-                            pathname: '/downloads',
-                        }}
-                        state={{ from: '/earthscience' }} // Passing the current page as state
+                    <a
+                        href="https://www.useso.org/resources/past-exams/"
+                        target="_blank" // Opens the link in a new tab
+                        rel="noopener noreferrer" // Security measure for opening new tabs
                         className="bg-yellow-100 p-6 rounded-lg shadow-lg hover:bg-yellow-200 transition"
                     >
                         <h2 className="text-2xl font-bold mb-4">Download Exam</h2>
                         <p>Download previous earth science exams for offline practice.</p>
-                    </Link>
+                    </a>
 
                     {/* Box 4: Resources */}
                     <Link
