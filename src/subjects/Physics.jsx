@@ -63,16 +63,15 @@ const Physics = () => {
                     </Link>
 
                     {/* Box 3: Download Exam */}
-                    <Link
-                        to={{
-                            pathname: '/downloads',
-                        }}
-                        state={{ from: '/physics' }} // Passing the current page as state
+                    <a
+                        href="https://www.aapt.org/Common2022/pastexams.cfm"
+                        target="_blank"
+                        rel="noopener noreferrer"
                         className="bg-yellow-100 p-6 rounded-lg shadow-lg hover:bg-yellow-200 transition"
                     >
                         <h2 className="text-2xl font-bold mb-4">Download Exam</h2>
                         <p>Download previous physics exams for offline practice.</p>
-                    </Link>
+                    </a>
 
                     {/* Box 4: Resources */}
                     <Link
