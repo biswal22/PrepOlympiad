@@ -8,8 +8,10 @@ const app = express();
 app.use(cors());
 app.use(express.json()); // Body parsing middleware
 
+const MONGO_URI = process.env.MONGO_URI;
+console.log(MONGO_URI)
 // Connect to MongoDB
-mongoose.connect(process.env.MONGO_URI, { useNewUrlParser: true, useUnifiedTopology: true })
+mongoose.connect(MONGO_URI, { useNewUrlParser: true, useUnifiedTopology: true })
     .then(() => console.log('MongoDB connected'))
     .catch(err => console.error(err));
 
@@ -20,5 +22,5 @@ const userRoutes = require('./routes/userRoutes');
 app.use('/api/problems', problemRoutes);
 app.use('/api/user', userRoutes);
 
-const PORT = process.env.PORT || 5000;
+const PORT = process.env.PORT || 5173;
 app.listen(PORT, () => console.log(`Server running on port ${PORT}`));
