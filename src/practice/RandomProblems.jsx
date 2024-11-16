@@ -1,15 +1,11 @@
 import React, { useEffect, useState } from 'react';
 import { useLocation } from 'react-router-dom';
 import axios from 'axios';
-import { useAuth0 } from '@auth0/auth0-react';
 
 const RandomProblems = () => {
     const location = useLocation();
-    const { user } = useAuth0(); // Get the user object from Auth0
-
-    // Access the `from` state, default to 'Unknown' if not available
     const previousPage = location.state?.from || 'Unknown';
-    const [problems, setProblems] = useState([]); // To store fetched problems
+    const [problems, setProblems] = useState([]); // Store fetched problems
     const [currentProblemIndex, setCurrentProblemIndex] = useState(0); // Track current problem index
     const [selectedAnswer, setSelectedAnswer] = useState(''); // Track selected answer
     const [feedback, setFeedback] = useState(''); // Track feedback for the user
@@ -18,7 +14,7 @@ const RandomProblems = () => {
         // Fetch problems based on the subject (previousPage)
         const fetchProblems = async () => {
             try {
-                const response = await axios.get(`/api/problems/${previousPage}/random`);
+                const response = await axios.get(`http://localhost:5173/api/problems/${previousPage}/random`);
                 setProblems(response.data); // Assuming API returns an array of problems
             } catch (error) {
                 console.error("Error fetching problems:", error);
@@ -35,21 +31,21 @@ const RandomProblems = () => {
 
     // Function to handle submitting an answer
     const handleSubmit = async () => {
-      const currentProblem = problems[currentProblemIndex];
-      const isCorrect = currentProblem.correctAnswer === selectedAnswer;
-  
-      setFeedback(isCorrect ? 'Correct!' : 'Incorrect');
-  
-      if (user) {
-            try {
-                await axios.post('/api/user/update-stats', {
-                    userId: user.sub, // Auth0 user ID
-                    subject: previousPage,
-                    correct: isCorrect
-                });
-            } catch (error) {
-                console.error("Error updating stats:", error);
-            }
+        const currentProblem = problems[currentProblemIndex];
+        const isCorrect = currentProblem.correctAnswer === selectedAnswer;
+
+        // Provide feedback to the user
+        setFeedback(isCorrect ? 'Correct!' : 'Incorrect');
+
+        // Update user statistics in the database
+        try {
+            await axios.post('http://localhost:5173/api/user/update-stats', {
+                userId: 'auth0-user-id', // Replace with actual user ID from authentication
+                subject: previousPage,
+                correct: isCorrect
+            });
+        } catch (error) {
+            console.error("Error updating stats:", error);
         }
 
         // Move to the next problem or end the session if no more problems
