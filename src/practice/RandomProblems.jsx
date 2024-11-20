@@ -10,19 +10,46 @@ const RandomProblems = () => {
     const [selectedAnswer, setSelectedAnswer] = useState(''); // Track selected answer
     const [feedback, setFeedback] = useState(''); // Track feedback for the user
 
-    useEffect(() => {
-        // Fetch problems based on the subject (previousPage)
-        const fetchProblems = async () => {
-            try {
-                const response = await axios.get(`http://localhost:5173/api/problems/${previousPage}/random`);
-                setProblems(response.data); // Assuming API returns an array of problems
-            } catch (error) {
-                console.error("Error fetching problems:", error);
-            }
-        };
+    // useEffect(() => {
+    //     // Fetch problems based on the subject (previousPage)
+    //     const fetchProblems = async () => {
+    //         try {
+    //             const response = await axios.get(`http://localhost:5173/api/problems/${previousPage}/random`);
+    //             setProblems(response.data); // Assuming API returns an array of problems
+    //         } catch (error) {
+    //             console.error("Error fetching problems:", error);
+    //         }
+    //     };
 
-        fetchProblems();
-    }, [previousPage]);
+    //     fetchProblems();
+    // }, [previousPage]);
+
+    useEffect(() => {
+      // Mock data for testing
+      const mockProblems = [
+          {
+              question: "What is 2 + 2?",
+              options: ["2", "3", "4", "5"],
+              correctAnswer: "4",
+              diagram: null // Optional: Replace with an image URL if testing diagrams
+          },
+          {
+              question: "What is the capital of France?",
+              options: ["Berlin", "Paris", "Rome", "Madrid"],
+              correctAnswer: "Paris",
+              diagram: null
+          },
+          {
+              question: "What is the square root of 16?",
+              options: ["2", "3", "4", "5"],
+              correctAnswer: "4",
+              diagram: null
+          }
+      ];
+  
+      // Set the mock data as the problems array
+      setProblems(mockProblems);
+    }, []); // No dependencies so it runs only once
 
     // Function to handle answer selection
     const handleAnswerSelect = (option) => {
@@ -67,7 +94,7 @@ const RandomProblems = () => {
             </h1>
 
             {problems.length > 0 ? (
-                <div className="w-full max-w-lg bg-white shadow-lg rounded-lg p-8">
+                <div className="w-full max-w-lg bg-purple shadow-lg rounded-lg p-8">
                     <p className="text-lg font-semibold mb-4">{problems[currentProblemIndex].question}</p>
                     {problems[currentProblemIndex].diagram && (
                         <img
