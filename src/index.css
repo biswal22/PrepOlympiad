@@ -57,7 +57,9 @@ button:focus-visible {
 }
 
 .custom-bg {
-  background: linear-gradient(135deg, #280144 0%, #5400fb 100%);
+  /* background: linear-gradient(135deg, #280144 0%, #5400fb 100%); */
+  /* background: linear-gradient(135deg, #005F1A 50%, #00C034 100%) */
+  background: linear-gradient(135deg, #000000 10%, #939393 100%)
 }
 
 @media (prefers-color-scheme: light) {

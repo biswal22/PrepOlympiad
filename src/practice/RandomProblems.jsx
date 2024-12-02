@@ -14,7 +14,7 @@ const RandomProblems = () => {
     //     // Fetch problems based on the subject (previousPage)
     //     const fetchProblems = async () => {
     //         try {
-    //             const response = await axios.get(`http://localhost:5173/api/problems/${previousPage}/random`);
+    //             const response = await axios.get(`http://localhost:5000/api/problems/${previousPage}/random`);
     //             setProblems(response.data); // Assuming API returns an array of problems
     //         } catch (error) {
     //             console.error("Error fetching problems:", error);
@@ -66,7 +66,7 @@ const RandomProblems = () => {
 
         // Update user statistics in the database
         try {
-            await axios.post('http://localhost:5173/api/user/update-stats', {
+            await axios.post('http://localhost:5000/api/user/update-stats', {
                 userId: 'auth0-user-id', // Replace with actual user ID from authentication
                 subject: previousPage,
                 correct: isCorrect

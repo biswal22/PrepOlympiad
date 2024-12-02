@@ -1,55 +1,63 @@
-
+/* Position icons around the logo */
 .icon-container {
-  display: flex;
-  justify-content: space-around;
-  width: 100%;
+  position: absolute;
+  width: 470px; /* Increase width for a larger circle */
+  height: 470px; /* Increase height for a larger circle */
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  animation: rotate-circle 10s linear infinite; /* Adjust rotation speed as needed */
 }
 
 .icon {
-  font-size: 100px;
-  margin: 0 20px;
-  opacity: 0;
-  animation-duration: 2s;
-  animation-fill-mode: forwards;
-  animation-iteration-count: infinite;
+  position: absolute;
+  font-size: 60px; /* Increase size of the icons */
+  color: white;
 }
 
+/* Icon positions around the circle */
 .math-icon {
-  animation-name: fadeInOut;
-  animation-delay: 0s;
+  top: 0%;
+  left: 50%;
+  transform: translate(-50%, -50%);
 }
 
 .chemistry-icon {
-  animation-name: fadeInOut;
-  animation-delay: 1s;
+  top: 25%;
+  left: 100%;
+  transform: translate(-50%, -50%);
 }
 
 .physics-icon {
-  animation-name: fadeInOut;
-  animation-delay: 2s;
+  top: 75%;
+  left: 100%;
+  transform: translate(-50%, -50%);
 }
 
 .biology-icon {
-  animation-name: fadeInOut;
-  animation-delay: 3s;
+  top: 100%;
+  left: 50%;
+  transform: translate(-50%, -50%);
 }
 
 .earth-science-icon {
-  animation-name: fadeInOut;
-  animation-delay: 4s;
+  top: 75%;
+  left: 0%;
+  transform: translate(-50%, -50%);
 }
 
-@keyframes fadeInOut {
-  0% {
-      opacity: 0;
-      transform: scale(0.5);
+.computer-icon {
+  top: 25%;
+  left: 0%; /* Top-left */
+  transform: translate(-50%, -50%);
+}
+
+/* Animation for circular movement */
+@keyframes rotate-circle {
+  from {
+      transform: translate(-50%, -50%) rotate(0deg);
   }
-  50% {
-      opacity: 1;
-      transform: scale(1.2);
-  }
-  100% {
-      opacity: 0;
-      transform: scale(0.5);
+  to {
+      transform: translate(-50%, -50%) rotate(360deg);
   }
 }
