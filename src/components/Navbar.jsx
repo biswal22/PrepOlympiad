@@ -30,10 +30,11 @@ const Navbar = () => {
             window.removeEventListener('resize', handleResize);
         };
     }, []);
-
+// bg-gradient-to-r from-blue-900 to-blue-700
     return (
         <>
-            <nav className={`bg-gradient-to-r from-green-900 to-green-700 backdrop-blur-sm fixed w-full h-17 transition-shadow duration-300 ease-in-out ${isScrolled ? `${isMobileMenuOpen ? '' : 'shadow-lg'} bg-opacity-90` : 'bg-opacity-100'} z-50`}>
+        
+            <nav className={`bg-transparent backdrop-blur-md fixed w-full h-17 transition-shadow duration-300 ease-in-out ${isScrolled ? `${isMobileMenuOpen ? '' : 'shadow-lg'} bg-opacity-90` : 'bg-opacity-100'} z-50`}>
                 <div className="px-6 py-3 flex items-center">
                     {/*<Link to="/"
                           className="logo flex items-center space-x-5"
@@ -43,7 +44,7 @@ const Navbar = () => {
 
                     {/* </Link> */}
                     <div className="flex items-center space-x-2">
-                        <span className="text-white text-xl font-bold">PEAKM!NDS</span>
+                        <Link to='/' className="text-white text-xl font-bold">PEAKM!NDS</Link>
                     </div>
                     <div className="flex-grow"></div>
                     <div className="hidden sm:visible sm:flex items-center space-x-1">
@@ -70,12 +71,12 @@ const Navbar = () => {
                             </svg>
                             {isDropdownOpen && (
                                 <div className="absolute left-0 top-full mt-0 w-48 bg-black text-white rounded-lg shadow-lg z-10">
-                                    <Link to="/subjects" className="block px-4 py-2 text-white font-semibold hover:bg-green-300">All</Link>
-                                    <Link to="/mathematics" className="block px-4 py-2 text-white font-semibold hover:bg-green-300">Mathematics</Link>
-                                    <Link to="/chemistry" className="block px-4 py-2 text-white font-semibold hover:bg-green-300">Chemistry</Link>
-                                    <Link to="/physics" className="block px-4 py-2 text-white font-semibold hover:bg-green-300">Physics</Link>
-                                    <Link to="/biology" className="block px-4 py-2 text-white font-semibold hover:bg-green-300">Biology</Link>
-                                    <Link to="/earthscience" className="block px-4 py-2 text-white font-semibold hover:bg-green-300">Earth Science</Link>
+                                    <Link to="/subjects" className="block px-4 py-2 text-white font-semibold hover:bg-gray-300">All</Link>
+                                    <Link to="/mathematics" className="block px-4 py-2 text-white font-semibold hover:bg-gray-300">Mathematics</Link>
+                                    <Link to="/chemistry" className="block px-4 py-2 text-white font-semibold hover:bg-gray-300">Chemistry</Link>
+                                    <Link to="/physics" className="block px-4 py-2 text-white font-semibold hover:bg-gray-300">Physics</Link>
+                                    <Link to="/biology" className="block px-4 py-2 text-white font-semibold hover:bg-gray-300">Biology</Link>
+                                    <Link to="/earthscience" className="block px-4 py-2 text-white font-semibold hover:bg-gray-300">Earth Science</Link>
                                 </div>
                             )}
                         </div>

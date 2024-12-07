@@ -13,7 +13,7 @@ const Mathematics = () => {
             <div className="w-1/4 bg-transparent p-6 pt-16"> {/* Added pt-32 to push the left column below the navbar */}
             {isAuthenticated ? (
                     <div>
-                        <h2 className="text-2xl font-bold mb-4">Your Chemistry Stats</h2>
+                        <h2 className="text-2xl font-bold mt-6 mb-4">Your Math Stats</h2>
                         <ul>
                             <li>Exams Taken: 5</li>
                             <li>Average Score: 85%</li>

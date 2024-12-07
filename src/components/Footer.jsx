@@ -3,7 +3,7 @@ import { FaLinkedin } from 'react-icons/fa'; // Correctly imported icon
 
 const Footer = () => {
     return (
-        <footer className="bg-gray-800 text-white py-6">
+        <footer className="bg-black text-white py-6">
             <div className="container mx-auto flex justify-center items-center space-x-8">
                 {/* Website Name */}
                 <p className="text-xl lg:text-2xl font-semibold">PrepOlympiad</p>

@@ -2,11 +2,11 @@ import React from 'react';
 import Subjects from './components/Subjects.jsx';
 import Navbar from "./components/Navbar.jsx";
 import HomePage from "./components/HomePage.jsx";
-import { BrowserRouter, Route, Routes } from 'react-router-dom';
+import { BrowserRouter, Route, Routes, useNavigate } from 'react-router-dom';
 import { Auth0Provider } from '@auth0/auth0-react';
 
 import About from "./components/About.jsx";
-import Footer from "./components/Footer.jsx"
+import Footer from "./components/Footer.jsx";
 
 import Mathematics from './subjects/Math.jsx';
 import Chemistry from './subjects/Chemistry.jsx';
@@ -19,8 +19,14 @@ import RandomProblems from './practice/RandomProblems.jsx';
 import Downloads from './practice/Downloads.jsx';
 import Resources from './practice/Resources.jsx';
 
-function App() {
+// Custom Auth0 Provider with redirection logic
+const Auth0ProviderWithHistory = ({ children }) => {
+    const navigate = useNavigate();
 
+    // Handle redirection after login
+    const onRedirectCallback = (appState) => {
+        navigate(appState?.returnTo || window.location.pathname);
+    };
 
     return (
         <Auth0Provider
@@ -29,11 +35,20 @@ function App() {
             authorizationParams={{
                 redirect_uri: window.location.origin
             }}
+            onRedirectCallback={onRedirectCallback}
         >
-            <div className='font-sans custom-bg min-h-screen'>
-                <BrowserRouter>
-                    <Navbar/>
-                    <div className='flex-grow'>
+            {children}
+        </Auth0Provider>
+    );
+};
+
+function App() {
+    return (
+        <div className="font-sans custom-bg min-h-screen">
+            <BrowserRouter>
+                <Auth0ProviderWithHistory>
+                    <Navbar />
+                    <div className="flex-grow">
                         <Routes>
                             <Route path="/" element={<HomePage />} />
                             <Route path="/about" element={<About />} />
@@ -52,9 +67,9 @@ function App() {
                         </Routes>
                     </div>
                     <Footer />
-                </BrowserRouter>
-            </div>
-        </Auth0Provider>
+                </Auth0ProviderWithHistory>
+            </BrowserRouter>
+        </div>
     );
 }
 

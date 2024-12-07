@@ -37,10 +37,16 @@ const HomePage = () => {
                     
                     {/* Left Side: Text Content */}
                     <div className="lg:w-1/2 text-left">
-                        <h1 className="text-6xl lg:text-8xl font-bold text-white">PEAKM!NDS</h1>
-                        <p className="mt-14 lg:text-5xl font-bold text-white mb-4">
-                            Your center for preparing for any and all STEM Olympiads!
+                        <h1 className="text-6xl lg:text-6xl font-bold text-purple-700">The new way to study</h1>
+                        <p className="mt-14 lg:text-3xl font-bold text-white mb-4">
+                            Backed by AoPS as the best place to track progress, practice problems, and find resources for Olympiads!
                         </p>
+                        <Link
+                            to="/subjects"
+                            className="inline-block bg-purple-800 text-white font-bold py-3 px-6 rounded-lg mt-4 hover:bg-purple-700 transition duration-300"
+                        >
+                            Get Started
+                        </Link>
                     </div>
 
                     {/* Right Side: Icons and Image */}
@@ -63,7 +69,7 @@ const HomePage = () => {
                 </div>
             </div>
             <div className="my-32"></div> {/* Add extra margin space above */}
-            <div className="bg-green-800 py-8 w-full">
+            <div className="bg-gradient-to-r from-purple-900 to-purple-500 py-8 w-full">
                 <div className="container mx-auto grid grid-cols-2 md:grid-cols-4 gap-8 text-white text-center px-4">
                     {/* Questions Available */}
                     <div>
