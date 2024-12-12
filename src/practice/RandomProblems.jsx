@@ -13,19 +13,19 @@ const RandomProblems = () => {
     const [selectedAnswer, setSelectedAnswer] = useState(''); // Track selected answer
     const [feedback, setFeedback] = useState(''); // Track feedback for the user
 
-    // useEffect(() => {
-    //     // Fetch problems based on the subject (previousPage)
-    //     const fetchProblems = async () => {
-    //         try {
-    //             const response = await axios.get(`http://localhost:5000/api/problems/${previousPage}/random`);
-    //             setProblems(response.data); // Assuming API returns an array of problems
-    //         } catch (error) {
-    //             console.error("Error fetching problems:", error);
-    //         }
-    //     };
+    useEffect(() => {
+        // Fetch problems based on the subject (previousPage)
+        const fetchProblems = async () => {
+            try {
+                const response = await axios.get(`http://localhost:5000/api/problems/${previousPage}/random`);
+                setProblems(response.data); // Assuming API returns an array of problems
+            } catch (error) {
+                console.error("Error fetching problems:", error);
+            }
+        };
 
-    //     fetchProblems();
-    // }, [previousPage]);
+        fetchProblems();
+    }, [previousPage]);
 
     useEffect(() => {
         if (!isAuthenticated) {
@@ -33,34 +33,34 @@ const RandomProblems = () => {
         }
     }, [isAuthenticated, loginWithRedirect]);
 
-    useEffect(() => {
-        if (isAuthenticated) {
-            // Mock data for testing
-            const mockProblems = [
-                {
-                    question: "What is 2 + 2?",
-                    options: ["2", "3", "4", "5"],
-                    correctAnswer: "4",
-                    diagram: null // Optional: Replace with an image URL if testing diagrams
-                },
-                {
-                    question: "What is 10 * 10?",
-                    options: ["10", "100", "1", "1000"],
-                    correctAnswer: "100",
-                    diagram: null
-                },
-                {
-                    question: "What is the square root of 16?",
-                    options: ["2", "3", "4", "5"],
-                    correctAnswer: "4",
-                    diagram: null
-                }
-            ];
+    // useEffect(() => {
+    //     if (isAuthenticated) {
+    //         // Mock data for testing
+    //         const mockProblems = [
+    //             {
+    //                 question: "What is 2 + 2?",
+    //                 options: ["2", "3", "4", "5"],
+    //                 correctAnswer: "4",
+    //                 diagram: null // Optional: Replace with an image URL if testing diagrams
+    //             },
+    //             {
+    //                 question: "What is 10 * 10?",
+    //                 options: ["10", "100", "1", "1000"],
+    //                 correctAnswer: "100",
+    //                 diagram: null
+    //             },
+    //             {
+    //                 question: "What is the square root of 16?",
+    //                 options: ["2", "3", "4", "5"],
+    //                 correctAnswer: "4",
+    //                 diagram: null
+    //             }
+    //         ];
         
-            // Set the mock data as the problems array
-            setProblems(mockProblems);
-        }
-    }, [isAuthenticated]); // Fetch problems only if the user is authenticated
+    //         // Set the mock data as the problems array
+    //         setProblems(mockProblems);
+    //     }
+    // }, [isAuthenticated]); // Fetch problems only if the user is authenticated
 
     // Function to handle answer selection
     const handleAnswerSelect = (option) => {

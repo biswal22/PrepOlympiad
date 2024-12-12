@@ -1,17 +1,21 @@
 from flask import Flask
-from flask_pymongo import PyMongo
+from flask_sqlalchemy import SQLAlchemy
 from flask_cors import CORS
 from config import Config
 
-mongo = PyMongo()  # Initialize the PyMongo object here
+db = SQLAlchemy()
 
 def create_app():
     app = Flask(__name__)
     app.config.from_object(Config)
     CORS(app)
 
-    # Initialize PyMongo with the Flask app
-    mongo.init_app(app)
+    # Initialize SQLAlchemy with the Flask app
+    db.init_app(app)
+
+    with app.app_context():
+        # Create database tables
+        db.create_all()
 
     # Register routes
     from .routes import setup_routes
