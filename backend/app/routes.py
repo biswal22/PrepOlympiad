@@ -11,3 +11,7 @@ def setup_routes(app):
     @app.route('/api/user/update-stats', methods=['POST'])
     def update_user():
         return user_controller.update_user()
+
+    @app.route('/')
+    def index():
+        return "Welcome to the API", 200

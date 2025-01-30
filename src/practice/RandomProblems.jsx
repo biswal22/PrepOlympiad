@@ -17,7 +17,7 @@ const RandomProblems = () => {
         // Fetch problems based on the subject (previousPage)
         const fetchProblems = async () => {
             try {
-                const response = await axios.get(`http://localhost:5000/api/problems/${previousPage}/random`);
+                const response = await axios.get(`http://localhost:5000/api/problems${previousPage}/random`);
                 setProblems(response.data); // Assuming API returns an array of problems
             } catch (error) {
                 console.error("Error fetching problems:", error);
